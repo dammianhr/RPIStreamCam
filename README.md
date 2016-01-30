@@ -1,6 +1,6 @@
 # RPIStreamCam
 
-RPIStreamCam is a ip camera make with a raspberry pi b+ and a camera with OF 090.
+RPIStreamCam is a ip camera make with a raspberry pi b+, raspbian jessie, rpi camera, OF 090.
 
 dependencies:
 https://github.com/bakercp/ofxHTTP.git
