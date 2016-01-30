@@ -1,34 +1,22 @@
 
 #include "ofMain.h"
 #include "ofxHTTP.h"
-//#include "ofxRPiCameraVideoGrabber.h"
 #include "RPiVideoGrabber.h"
 #include "ofAppEGLWindow.h"
 
 class ofApp : public ofBaseApp{
     ofx::HTTP::SimpleIPVideoServer server;
-    //ofxRPiCameraVideoGrabber videoGrabber;
     RPiVideoGrabber vidGrabber;
     int camWidth;
     int camHeight;
     OMXCameraSettings omxCameraSettings;
-    //ofPixels pix;
     
 public:
     //--------------------------------------------------------------
     void setup(){
         ofSetLogLevel(OF_LOG_VERBOSE);
         ofSetLogLevel("ofThread", OF_LOG_ERROR);
-        /*
-        omxCameraSettings.width = 320;
-        omxCameraSettings.height = 240;
-        omxCameraSettings.framerate = 15;
-        omxCameraSettings.isUsingTexture = true;
-        
-        videoGrabber.setup(omxCameraSettings);
-        videoGrabber.enablePixels();
-        */
-        
+
         camWidth = 320;
         camHeight = 240;
         vidGrabber.setDesiredFrameRate(15);
@@ -55,7 +43,6 @@ public:
     
     //--------------------------------------------------------------
     void draw(){
-        //videoGrabber.draw();
         vidGrabber.draw(0, 0);
         stringstream info;
         info << "App FPS: " << ofGetFrameRate() << "\n";
